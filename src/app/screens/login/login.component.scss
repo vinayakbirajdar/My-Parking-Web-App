@@ -1,0 +1,36 @@
+.login-card {
+    width: 800px;
+    height: 420px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* LEFT PANEL */
+.left-panel {
+    width: 45%;
+    background: linear-gradient(135deg,
+            var(--app_primary_color),
+            #1b3a4b);
+}
+
+.logo-img {
+    width: 70%;
+    max-width: 250px;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+    width: 55%;
+    background-color: #ffffff;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #494747;
+}
+
+.text-muted {
+    font-weight: bold;
+    color: #888;
+}
