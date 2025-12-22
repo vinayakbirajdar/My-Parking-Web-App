@@ -12,5 +12,13 @@ export class CoreButtonComponent {
   @Input() label: string = 'Button';
   @Input() type: 'button' | 'submit' = 'button';
   @Input() disabled: boolean = false;
-  @Input() width: string = '100%'
+  @Input() width: string = '100%';
+  @Input() onClick: () => void = () => { };
+
+  handleClick() {
+    if (!this.disabled && this.onClick) {
+      this.onClick(); // Call the passed function
+    }
+  }
+
 }
