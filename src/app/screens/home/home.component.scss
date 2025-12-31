@@ -1,0 +1,44 @@
+/* home.component.scss */
+
+.vehicle-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    background: linear-gradient(135deg,
+            var(--app_primary_color),
+            #1b3a4b);
+    color: wheat;
+}
+
+.vehicle-card:hover .text-muted {
+    color: white !important;
+}
+
+/* ICON + CONTENT LAYOUT */
+
+.icon-container {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vehicle-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.content-container {
+    width: 75%;
+}
+
+.vehicle-img {
+    height: 60px;
+    width: 120px;
+}

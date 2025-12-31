@@ -1,0 +1,21 @@
+<!-- sidebar.component.html -->
+<div class="sidebar" [class.collapsed]="isCollapsed">
+
+    <ul class="menu">
+        <li>
+            <span class="icon">🏠</span>
+            <span class="text" *ngIf="!isCollapsed">Dashboard</span>
+        </li>
+
+        <li>
+            <span class="icon">💰</span>
+            <span class="text" *ngIf="!isCollapsed">Wallet</span>
+        </li>
+
+        <li>
+            <span class="icon">👤</span>
+            <span class="text" *ngIf="!isCollapsed">Profile</span>
+        </li>
+    </ul>
+
+</div>
