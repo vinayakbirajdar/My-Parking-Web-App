@@ -1,20 +1,33 @@
-<!-- sidebar.component.html -->
 <div class="sidebar" [class.collapsed]="isCollapsed">
+
+    <!-- Toggle Button -->
+    <div class="toggle-btn" (click)="toggleSidebar()">
+        <!-- ☰ -->
+        <img src="app/assets/app-icon/menu-icon.png" alt="menu" class="menu-icon" />
+    </div>
 
     <ul class="menu">
         <li>
-            <span class="icon">🏠</span>
-            <span class="text" *ngIf="!isCollapsed">Dashboard</span>
+            <span class="icon">
+                <img src="app/assets/app-icon/home-icon.png" alt="menu" class="icon img" />
+            </span>
+            <span class="icon-text" *ngIf="!isCollapsed">Dashboard</span>
         </li>
 
         <li>
-            <span class="icon">💰</span>
-            <span class="text" *ngIf="!isCollapsed">Wallet</span>
+            <span class="icon">
+                <img src="app/assets/app-icon/profile-icon.png" alt="menu" class="icon img" />
+            </span>
+            <span class="icon-text" *ngIf="!isCollapsed">Profile</span>
+
         </li>
 
         <li>
-            <span class="icon">👤</span>
-            <span class="text" *ngIf="!isCollapsed">Profile</span>
+            <span class="icon">
+                <img src="app/assets/app-icon/wallet-icon.png" alt="menu" class="icon img" />
+            </span>
+
+            <span class="icon-text" *ngIf="!isCollapsed">Wallet</span>
         </li>
     </ul>
 
