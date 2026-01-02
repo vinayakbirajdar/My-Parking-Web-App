@@ -1,44 +1,46 @@
 <div class="sidebar" [class.collapsed]="isCollapsed">
     <div class="toggle-btn" (click)="toggleSidebar()">
-        <img src="app/assets/app-icon/menu-icon.png" alt="menu" class="menu-icon" />
+        <img src="app/assets/app-icon/sidebar-icon.png" alt="menu" class="sidebar-icon" />
+        <span class="sidebar-icon-text" *ngIf="!isCollapsed">Menu</span>
     </div>
 
     <ul class="menu">
-        <li>
+        <li routerLink="/home" routerLinkActive="active">
             <span class="icon">
-                <mat-icon class="menu-icon">dashboard</mat-icon> </span>
+                <mat-icon class="menu-icon">dashboard</mat-icon>
+            </span>
             <span class="icon-text" *ngIf="!isCollapsed">Dashboard</span>
         </li>
 
-        <li>
+        <li routerLink="/profile" routerLinkActive="active">
             <span class="icon">
                 <mat-icon class="menu-icon">person</mat-icon> </span>
             <span class="icon-text" *ngIf="!isCollapsed">Profile</span>
 
         </li>
 
-        <li>
+        <li routerLink="/wallet" routerLinkActive="active">
             <span class="icon">
                 <mat-icon class="menu-icon">account_balance_wallet</mat-icon> </span>
 
             <span class="icon-text" *ngIf="!isCollapsed">Wallet</span>
         </li>
 
-        <li>
+        <li routerLink="/privacySecurity" routerLinkActive="active">
             <span class="icon">
                 <mat-icon class="menu-icon">lock</mat-icon>
             </span>
             <span class="icon-text" *ngIf="!isCollapsed">Privacy & Security</span>
         </li>
 
-        <li>
+        <li routerLink="/help" routerLinkActive="active">
             <span class="icon">
                 <mat-icon class="menu-icon">help_outline</mat-icon>
             </span>
             <span class="icon-text" *ngIf="!isCollapsed">Help</span>
         </li>
 
-        <li>
+        <li routerLink="/about" routerLinkActive="active">
             <span class="icon">
                 <mat-icon class="menu-icon">info</mat-icon>
             </span>
