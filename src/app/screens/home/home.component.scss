@@ -19,8 +19,6 @@
     color: white !important;
 }
 
-/* ICON + CONTENT LAYOUT */
-
 .icon-container {
     width: 25%;
     display: flex;
@@ -38,7 +36,63 @@
     width: 75%;
 }
 
+.header-box {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.welcome-text {
+    background: #eef3ff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #214B69;
+    font-weight: 500;
+}
+
+.icon-container {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .vehicle-img {
-    height: 60px;
-    width: 120px;
+    width: 48px;
+    height: auto;
+}
+
+.content-container {
+    width: 75%;
+}
+
+.activity-item {
+    padding: 10px 12px;
+    background: #f9fbff;
+    border-left: 4px solid #214B69;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.text-warning {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.suggestion-card {
+    background: linear-gradient(135deg, #214B69, #2f6fa1);
+    color: #ffffff;
+    border-radius: 14px;
+    font-size: 15px;
+}
+
+@media (max-width: 768px) {
+    .welcome-text {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .vehicle-img {
+        width: 40px;
+    }
 }

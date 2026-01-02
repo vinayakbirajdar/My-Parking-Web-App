@@ -1,25 +1,45 @@
 <div class="container-fluid mt-3">
 
-    <!-- HEADER SECTION -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h5 class="mb-0 fw-semibold">Home</h5>
-        <span class="text-muted">
-            Welcome, <strong>Vinayak</strong>
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4 header-box">
+        <div>
+            <h5 class="mb-1 fw-bold">Dashboard</h5>
+            <small class="text-muted">Manage your parking efficiently</small>
+        </div>
+        <span class="welcome-text">
+            👋 Welcome, <strong>Vinayak</strong>
         </span>
     </div>
+
+    <!-- VEHICLE SELECTION -->
+    <p class="fw-semibold mb-3">Select Your Vehicle</p>
+
     <div class="row g-4">
         <!-- Heavy Vehicle -->
         <div class="col-md-4">
             <div class="card shadow-sm h-100 vehicle-card">
                 <div class="card-body d-flex align-items-center">
                     <div class="icon-container">
-                        <img src="app/assets/app-icon/heavy-vehicle.png" alt="Heavy Vehicle" class="vehicle-img" />
+                        <img src="app/assets/app-icon/heavy-vehicle.png" class="vehicle-img" />
                     </div>
                     <div class="content-container">
                         <h6 class="fw-semibold mb-1">Heavy Vehicle</h6>
-                        <p class="text-muted mb-0">
-                            Park your heavy vehicle
-                        </p>
+                        <p class="text-muted mb-0">Park your heavy vehicle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bike -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100 vehicle-card">
+                <div class="card-body d-flex align-items-center">
+                    <div class="icon-container">
+                        <img src="app/assets/app-icon/two-wheeler.png" class="vehicle-img" />
+                    </div>
+                    <div class="content-container">
+                        <h6 class="fw-semibold mb-1">Bike</h6>
+                        <p class="text-muted mb-0">Park your bike</p>
                     </div>
                 </div>
             </div>
@@ -28,68 +48,73 @@
         <!-- Car -->
         <div class="col-md-4">
             <div class="card shadow-sm h-100 vehicle-card">
-                <div class="card shadow-sm h-100 vehicle-card">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="icon-container">
-                            <img src="app/assets/app-icon/two-wheeler.png" alt="Heavy Vehicle" class="vehicle-img" />
-                        </div>
-                        <div class="content-container">
-                            <h6 class="fw-semibold mb-1">Bike</h6>
-                            <p class="text-muted mb-0">
-                                Park your Bike
-                            </p>
-                        </div>
+                <div class="card-body d-flex align-items-center">
+                    <div class="icon-container">
+                        <img src="app/assets/app-icon/four-wheeler.png" class="vehicle-img" />
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2 Wheeler -->
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100 vehicle-card">
-                <div class="card shadow-sm h-100 vehicle-card">
-                    <div class="card-body d-flex align-items-center">
-                        <div class="icon-container">
-                            <img src="app/assets/app-icon/four-wheeler.png" alt="Heavy Vehicle" class="vehicle-img" />
-                        </div>
-                        <div class="content-container">
-                            <h6 class="fw-semibold mb-1">Car</h6>
-                            <p class="text-muted mb-0">
-                                Park your Car
-                            </p>
-                        </div>
+                    <div class="content-container">
+                        <h6 class="fw-semibold mb-1">Car</h6>
+                        <p class="text-muted mb-0">Park your car</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- RECENT ACTIVITY & FAVOURITES SECTION -->
+    <!-- RECENT ACTIVITY & FAVORITES -->
     <div class="row g-4 mt-4">
 
         <!-- Recent Activity -->
-        <div class="col-lg-4">
-            <div class="card shadow-sm h-100 vehicle-card">
+        <div class="col-lg-8">
+            <div class="card shadow-sm h-100">
                 <div class="card-body">
                     <h6 class="fw-semibold mb-3">Recent Activity</h6>
 
-                    <div class="activity-item d-flex justify-content-between align-items-center mb-2">
-                        <span class="text-muted">🚗 MH12 AB 1234</span>
-                        <span class="text-muted">Car • Parked • 10:32 AM</span>
+                    <div class="activity-item mb-3">
+                        <span>🚗 MH12 AB 1234</span>
+                        <small class="text-muted d-block">Car • Parked • 10:32 AM</small>
                     </div>
 
-                    <div class="activity-item d-flex justify-content-between align-items-center mb-2">
-                        <span class="text-muted">🏍 MH14 XY 9988</span>
-                        <span class="text-muted">Bike • Exited • 10:20 AM</span>
+                    <div class="activity-item mb-3">
+                        <span>🏍 MH14 XY 9988</span>
+                        <small class="text-muted d-block">Bike • Exited • 10:20 AM</small>
                     </div>
 
-                    <div class="activity-item d-flex justify-content-between align-items-center">
-                        <span class="text-muted">🚚 TR-09 7766</span>
-                        <span class="text-muted">Heavy • Parked • 10:05 AM</span>
+                    <div class="activity-item">
+                        <span>🚚 TR-09 7766</span>
+                        <small class="text-muted d-block">Heavy • Parked • 10:05 AM</small>
                     </div>
-
                 </div>
             </div>
         </div>
 
+        <!-- Favorites -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h6 class="fw-semibold mb-3">Favourite Vehicles</h6>
+
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>🚗 MH12 AB 1234</span>
+                        <span class="text-warning">★</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <span>🏍 MH14 XY 9988</span>
+                        <span class="text-warning">★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- SUGGESTION -->
+    <div class="card shadow-sm mt-4 suggestion-card">
+        <div class="card-body d-flex align-items-center">
+            💡 <span class="ms-2">
+                Tip: Book parking early during peak hours to avoid waiting.
+            </span>
+        </div>
+    </div>
+
+</div>
