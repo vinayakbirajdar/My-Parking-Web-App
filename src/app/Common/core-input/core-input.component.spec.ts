@@ -1,19 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
-import { CoreInputComponent } from './core-input.component';
+import { CommonInputComponent } from './core-input.component';
 
-describe('CoreInputComponent', () => {
-  let component: CoreInputComponent;
-  let fixture: ComponentFixture<CoreInputComponent>;
+describe('CommonInputComponent', () => {
+  let component: CommonInputComponent;
+  let fixture: ComponentFixture<CommonInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CoreInputComponent]
+      imports: [CommonInputComponent, ReactiveFormsModule]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CoreInputComponent);
+    fixture = TestBed.createComponent(CommonInputComponent);
     component = fixture.componentInstance;
+    // Provide a FormControl as required by the component
+    component.control = new FormControl('');
+    component.placeholder = 'Test placeholder';
     fixture.detectChanges();
   });
 
