@@ -1,0 +1,104 @@
+/* privacy-security.component.scss */
+
+.header-box {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.welcome-text {
+    background: #eef3ff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #214B69;
+    font-weight: 500;
+}
+
+.privacy-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.security-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.security-icon {
+    font-size: 32px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef3ff;
+    border-radius: 12px;
+}
+
+.data-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.policy-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #f8f9ff, #ffffff);
+    }
+}
+
+.form-check-input:checked {
+    background-color: var(--app_primary_color);
+    border-color: var(--app_primary_color);
+}
+
+@media (max-width: 768px) {
+    .welcome-text {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .header-box {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px;
+    }
+
+    .security-icon {
+        font-size: 28px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .privacy-item,
+    .data-item {
+        .d-flex {
+            flex-direction: column;
+            align-items: flex-start !important;
+            gap: 12px;
+        }
+
+        button {
+            width: 100% !important;
+        }
+    }
+}

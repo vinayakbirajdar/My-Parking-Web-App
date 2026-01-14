@@ -1,1 +1,154 @@
-<p>privacy-security works!</p>
+<div class="container-fluid mt-3">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4 header-box">
+        <div>
+            <h5 class="mb-1 fw-bold">Privacy & Security</h5>
+            <small class="text-muted">Manage your privacy and security settings</small>
+        </div>
+        <span class="welcome-text">
+            🔒 Security Center
+        </span>
+    </div>
+
+    <!-- PRIVACY SETTINGS -->
+    <p class="fw-semibold mb-3">Privacy Settings</p>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <div class="privacy-item mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="fw-semibold mb-1">Location Services</h6>
+                        <small class="text-muted">Allow app to access your location for parking</small>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="locationSwitch" checked>
+                    </div>
+                </div>
+            </div>
+
+            <div class="privacy-item mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="fw-semibold mb-1">Data Analytics</h6>
+                        <small class="text-muted">Help improve app by sharing usage data</small>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="analyticsSwitch" checked>
+                    </div>
+                </div>
+            </div>
+
+            <div class="privacy-item">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="fw-semibold mb-1">Marketing Communications</h6>
+                        <small class="text-muted">Receive offers and promotional updates</small>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="marketingSwitch">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECURITY OPTIONS -->
+    <p class="fw-semibold mb-3">Security Options</p>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100 security-card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="security-icon">🔐</div>
+                        <div class="ms-3">
+                            <h6 class="fw-semibold mb-1">Two-Factor Authentication</h6>
+                            <small class="text-muted">Add an extra layer of security</small>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-primary btn-sm w-100">Enable 2FA</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100 security-card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="security-icon">🔑</div>
+                        <div class="ms-3">
+                            <h6 class="fw-semibold mb-1">Change Password</h6>
+                            <small class="text-muted">Update your account password</small>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-primary btn-sm w-100">Change Password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATA MANAGEMENT -->
+    <p class="fw-semibold mb-3">Data Management</p>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <div class="data-item mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="fw-semibold mb-1">Download Your Data</h6>
+                        <small class="text-muted">Get a copy of your account data</small>
+                    </div>
+                    <button class="btn btn-outline-secondary btn-sm">Download</button>
+                </div>
+            </div>
+
+            <div class="data-item mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="fw-semibold mb-1">Clear Cache</h6>
+                        <small class="text-muted">Remove temporary files and data</small>
+                    </div>
+                    <button class="btn btn-outline-secondary btn-sm">Clear</button>
+                </div>
+            </div>
+
+            <div class="data-item">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="fw-semibold mb-1 text-danger">Delete Account</h6>
+                        <small class="text-muted">Permanently delete your account and all data</small>
+                    </div>
+                    <button class="btn btn-outline-danger btn-sm">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRIVACY POLICY & TERMS -->
+    <p class="fw-semibold mb-3">Legal & Policies</p>
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100 policy-card">
+                <div class="card-body">
+                    <h6 class="fw-semibold mb-2">📄 Privacy Policy</h6>
+                    <p class="text-muted mb-3 small">Read our privacy policy to understand how we handle your data</p>
+                    <button class="btn btn-primary btn-sm w-100">View Policy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100 policy-card">
+                <div class="card-body">
+                    <h6 class="fw-semibold mb-2">📋 Terms of Service</h6>
+                    <p class="text-muted mb-3 small">Review the terms and conditions of using our service</p>
+                    <button class="btn btn-primary btn-sm w-100">View Terms</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
