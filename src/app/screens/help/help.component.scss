@@ -1,0 +1,129 @@
+/* help.component.scss */
+
+.header-box {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.welcome-text {
+    background: #eef3ff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #214B69;
+    font-weight: 500;
+}
+
+.help-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        background: linear-gradient(135deg,
+                var(--app_primary_color),
+                #1b3a4b);
+        color: white;
+
+        .text-muted {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+    }
+}
+
+.help-icon {
+    font-size: 40px;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef3ff;
+    border-radius: 16px;
+}
+
+.faq-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.contact-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.contact-icon {
+    font-size: 32px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef3ff;
+    border-radius: 12px;
+}
+
+.issue-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.issue-badge {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff3cd;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .welcome-text {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .header-box {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 12px;
+    }
+
+    .help-icon {
+        font-size: 32px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .contact-icon {
+        font-size: 28px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .issue-badge {
+        font-size: 20px;
+        width: 35px;
+        height: 35px;
+    }
+}
