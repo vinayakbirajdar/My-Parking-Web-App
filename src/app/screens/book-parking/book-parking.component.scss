@@ -1,0 +1,33 @@
+.header-box {
+  margin-bottom: 1rem;
+}
+
+.vehicle-type-badge {
+  font-size: 0.9rem;
+  padding: 0.4rem 0.75rem;
+  background: linear-gradient(135deg, var(--app_primary_color, #1b3a4b), #2d5a73);
+  color: white;
+  border: none;
+}
+
+.summary-card {
+  border-left: 4px solid var(--app_primary_color, #1b3a4b);
+}
+
+.input-group-text {
+  border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.input-group .form-control,
+.input-group .form-select {
+  max-width: 100%;
+}
+
+.form-select {
+  border-left: 0;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 60px;
+}
