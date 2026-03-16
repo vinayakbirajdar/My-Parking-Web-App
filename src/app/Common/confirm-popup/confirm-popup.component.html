@@ -1,0 +1,25 @@
+@if (show) {
+  <div class="popup-backdrop" (click)="onBackdropClick()">
+    <div class="popup-box" (click)="$event.stopPropagation()">
+      <h6 class="popup-title">{{ title }}</h6>
+      <div class="popup-details">
+        @for (row of details; track row.label) {
+          <div class="detail-row">
+            <span class="detail-label">{{ row.label }}</span>
+            <span class="detail-value">{{ row.value }}</span>
+          </div>
+        }
+      </div>
+      <div class="popup-actions">
+        <button type="button" class="btn btn-outline-secondary" (click)="onCancel()">
+          {{ cancelLabel }}
+        </button>
+        <app-core-button
+          [label]="confirmLabel"
+          width="auto"
+          [onClick]="onConfirm">
+        </app-core-button>
+      </div>
+    </div>
+  </div>
+}
