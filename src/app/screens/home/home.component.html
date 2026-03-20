@@ -17,10 +17,10 @@
     <div class="row g-4">
         <!-- Heavy Vehicle -->
         <div class="col-md-4">
-            <div class="card shadow-sm h-100 vehicle-card">
+            <div class="card shadow-sm h-100 vehicle-card cursor-pointer" (click)="onVehicleSelect('heavy')" role="button" tabindex="0">
                 <div class="card-body d-flex align-items-center">
                     <div class="icon-container">
-                        <img src="app/assets/app-icon/heavy-vehicle.png" class="vehicle-img" />
+                        <img src="app/assets/app-icon/heavy-vehicle.png" class="vehicle-img" alt="Heavy vehicle" />
                     </div>
                     <div class="content-container">
                         <h6 class="fw-semibold mb-1">Heavy Vehicle</h6>
@@ -32,10 +32,10 @@
 
         <!-- Bike -->
         <div class="col-md-4">
-            <div class="card shadow-sm h-100 vehicle-card">
+            <div class="card shadow-sm h-100 vehicle-card cursor-pointer" (click)="onVehicleSelect('bike')" role="button" tabindex="0">
                 <div class="card-body d-flex align-items-center">
                     <div class="icon-container">
-                        <img src="app/assets/app-icon/two-wheeler.png" class="vehicle-img" />
+                        <img src="app/assets/app-icon/two-wheeler.png" class="vehicle-img" alt="Bike" />
                     </div>
                     <div class="content-container">
                         <h6 class="fw-semibold mb-1">Bike</h6>
@@ -47,10 +47,10 @@
 
         <!-- Car -->
         <div class="col-md-4">
-            <div class="card shadow-sm h-100 vehicle-card">
+            <div class="card shadow-sm h-100 vehicle-card cursor-pointer" (click)="onVehicleSelect('car')" role="button" tabindex="0">
                 <div class="card-body d-flex align-items-center">
                     <div class="icon-container">
-                        <img src="app/assets/app-icon/four-wheeler.png" class="vehicle-img" />
+                        <img src="app/assets/app-icon/four-wheeler.png" class="vehicle-img" alt="Car" />
                     </div>
                     <div class="content-container">
                         <h6 class="fw-semibold mb-1">Car</h6>
@@ -87,7 +87,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Favorites -->
         <div class="col-lg-4">
             <div class="card shadow-sm h-100">

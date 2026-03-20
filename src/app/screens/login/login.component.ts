@@ -33,6 +33,10 @@ export class LoginComponent {
     }
   };
 
+  handleCreateAccount = () => {
+    this.router.navigate(['/registerUser']);
+  }
+
 
 }
 
