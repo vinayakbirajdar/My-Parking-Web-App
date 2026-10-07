@@ -1,0 +1,125 @@
+$primary-dark: #1e3a5f;
+$primary-light: #e8f4fc;
+
+.ticket-page {
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-box {
+  margin-bottom: 0.5rem;
+}
+
+.ticket-card {
+  border-radius: 12px;
+  border: none;
+}
+
+.scan-instruction {
+  font-size: 0.95rem;
+  color: #555;
+  text-align: center;
+}
+
+.qr-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  .qr-image {
+    width: 200px;
+    height: 200px;
+    display: block;
+  }
+}
+
+.ticket-details {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    font-size: 0.9rem;
+    &:last-child { border-bottom: none; }
+    .label {
+      color: #666;
+      margin-right: 0.5rem;
+    }
+    .value {
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+  }
+}
+
+.form-title {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.illus-scanned {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-icon-wrap {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8f4fc 0%, #d0e8f7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  .p-icon {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $primary-dark;
+  }
+  .car-icon {
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    font-size: 1.5rem;
+  }
+}
+
+.timer-display {
+  background: #f0f7ff;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  .timer-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-dark;
+  }
+  .timer-labels {
+    font-size: 0.75rem;
+    color: #666;
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.25rem;
+  }
+}
+
+.btn-primary {
+  background: $primary-dark;
+  border-color: $primary-dark;
+  border-radius: 10px;
+  font-weight: 600;
+  &:hover {
+    background: #1a3454;
+    border-color: #1a3454;
+  }
+}

@@ -1,0 +1,64 @@
+<div class="container-fluid mt-3 ticket-page">
+  <div class="d-flex justify-content-between align-items-center mb-3 header-box">
+    <button type="button" class="btn btn-link btn-sm text-dark p-0" (click)="goHome()">
+      <i class="bi bi-house-door"></i> Home
+    </button>
+    <h5 class="mb-0 fw-bold">Parking ticket</h5>
+    <span class="invisible"><i class="bi bi-house-door"></i></span>
+  </div>
+
+  @if (view === 'ticket') {
+    <div class="card shadow-sm ticket-card">
+      <div class="card-body">
+        <p class="scan-instruction mb-3">Scan this in the scanner when you are in the parking lot</p>
+        <div class="qr-wrap mb-4">
+          <img [src]="qrImageUrl" alt="Booking QR Code" class="qr-image" />
+        </div>
+        <div class="ticket-details">
+          <div class="detail-row"><span class="label">Name:</span> <span class="value">{{ driverName }}</span></div>
+          <div class="detail-row"><span class="label">Vehicle:</span> <span class="value">{{ vehicleLabel }}</span></div>
+          <div class="detail-row"><span class="label">Parking area:</span> <span class="value">{{ parkingArea }}</span></div>
+          <div class="detail-row"><span class="label">Parking slot:</span> <span class="value">{{ slotNumber }}</span></div>
+          <div class="detail-row"><span class="label">Date:</span> <span class="value">{{ entryDate }}</span></div>
+          <div class="detail-row"><span class="label">Duration:</span> <span class="value">{{ duration }}</span></div>
+          <div class="detail-row"><span class="label">Hours:</span> <span class="value">{{ timeRange }}</span></div>
+          <div class="detail-row"><span class="label">Phone:</span> <span class="value">{{ phone }}</span></div>
+        </div>
+        <div class="mt-4 d-flex flex-column gap-2">
+          <button type="button" class="btn btn-primary btn-lg w-100 py-3" (click)="navigateToLocation()">
+            NAVIGATE TO LOCATION
+          </button>
+          <button type="button" class="btn btn-outline-secondary" (click)="markAsScanned()">
+            I've scanned at the gate
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (view === 'scanned') {
+    <div class="card shadow-sm ticket-card">
+      <div class="card-body text-center py-5">
+        <h6 class="form-title mb-3">Parking ticket</h6>
+        <div class="illus-scanned mb-4">
+          <div class="p-icon-wrap">
+            <span class="p-icon">P</span>
+            <span class="car-icon">🚗</span>
+          </div>
+        </div>
+        <h4 class="fw-bold mb-2">Scan ticket success!</h4>
+        <p class="text-muted mb-4">Your vehicle is parked and the time will be counted down</p>
+        <div class="timer-display mb-4">
+          <span class="timer-value">{{ timerHours }} hr {{ timerMins | number:'2.0-0' }} min</span>
+          <div class="timer-labels">
+            <span>hr</span>
+            <span>min</span>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg w-100 py-3" (click)="goHome()">
+          HOME
+        </button>
+      </div>
+    </div>
+  }
+</div>
