@@ -1,0 +1,77 @@
+<div class="container-fluid mt-3">
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4 header-box">
+        <div>
+            <button type="button" class="btn btn-outline-secondary btn-sm mb-2" (click)="goBack()">
+                ← Back
+            </button>
+            <h5 class="mb-1 fw-bold">Select Location</h5>
+            <small class="text-muted">Search or choose a parking location for your {{ vehicleType | titlecase }}</small>
+        </div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="mb-4">
+        <label class="form-label text-muted small">Search location</label>
+        <app-core-input
+            placeholder="Search by area, landmark or address..."
+            icon="bi bi-geo-alt-fill"
+            [control]="searchControl">
+        </app-core-input>
+    </div>
+
+    <!-- RECENT LOCATIONS -->
+    <p class="fw-semibold mb-3">Recent</p>
+    <div class="card shadow-sm mb-4">
+        <div class="card-body p-0">
+            @if (filteredRecent.length === 0) {
+                <p class="text-muted small mb-0 p-3">No recent locations match your search.</p>
+            } @else {
+                <div class="list-group list-group-flush">
+                    @for (loc of filteredRecent; track loc.id) {
+                        <button
+                            type="button"
+                            class="list-group-item list-group-item-action d-flex align-items-center location-item"
+                            (click)="selectLocation(loc)">
+                            <span class="me-3 location-icon">📍</span>
+                            <div class="flex-grow-1 text-start">
+                                <span class="fw-semibold d-block">{{ loc.name }}</span>
+                                <small class="text-muted">{{ loc.address }} · {{ loc.distance }}</small>
+                            </div>
+                            <i class="bi bi-chevron-right text-muted"></i>
+                        </button>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- NEARBY LOCATIONS -->
+    <p class="fw-semibold mb-3">Nearby</p>
+    <div class="card shadow-sm mb-4">
+        <div class="card-body p-0">
+            @if (filteredNearby.length === 0) {
+                <p class="text-muted small mb-0 p-3">No nearby locations match your search.</p>
+            } @else {
+                <div class="list-group list-group-flush">
+                    @for (loc of filteredNearby; track loc.id) {
+                        <button
+                            type="button"
+                            class="list-group-item list-group-item-action d-flex align-items-center location-item"
+                            (click)="selectLocation(loc)">
+                            <span class="me-3 location-icon">🅿️</span>
+                            <div class="flex-grow-1 text-start">
+                                <span class="fw-semibold d-block">{{ loc.name }}</span>
+                                <small class="text-muted">{{ loc.address }} · {{ loc.distance }}</small>
+                                @if (loc.slots !== undefined) {
+                                    <small class="text-success d-block mt-0">{{ loc.slots }} slots available</small>
+                                }
+                            </div>
+                            <i class="bi bi-chevron-right text-muted"></i>
+                        </button>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
