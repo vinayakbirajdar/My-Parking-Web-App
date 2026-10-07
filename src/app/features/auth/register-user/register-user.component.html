@@ -1,0 +1,41 @@
+<div class="register-page d-flex justify-content-center align-items-center">
+    <div class="register-box card shadow-lg">
+        <div class="card-body p-4">
+            <app-core-title text="USER REGISTRATION"></app-core-title>
+            <form (ngSubmit)="onSubmit()">
+                <div class="mt-3">
+                    <label class="form-label small text-muted">Name</label>
+                    <app-core-input
+                        placeholder="Full name"
+                        icon="bi bi-person-fill"
+                        [control]="registerForm.controls['name']">
+                    </app-core-input>
+                </div>
+                <div class="mt-3">
+                    <label class="form-label small text-muted">Email</label>
+                    <app-core-input
+                        placeholder="Email address"
+                        icon="bi bi-envelope-fill"
+                        [control]="registerForm.controls['email']">
+                    </app-core-input>
+                </div>
+                <div class="mt-3">
+                    <label class="form-label small text-muted">Mobile number</label>
+                    <app-core-input
+                        placeholder="e.g. +91 98765 43210"
+                        icon="bi bi-telephone-fill"
+                        [control]="registerForm.controls['mobileNumber']">
+                    </app-core-input>
+                </div>
+                <div class="mt-4">
+                    <app-core-button
+                        label="REGISTER"
+                        type="submit"
+                        width="100%"
+                        [onClick]="onSubmit">
+                    </app-core-button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
