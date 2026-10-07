@@ -1,0 +1,162 @@
+<div class="container-fluid mt-3 payment-page">
+  <div class="d-flex justify-content-between align-items-center mb-3 header-box">
+    <button type="button" class="btn btn-link btn-sm text-dark p-0" (click)="goBack()">
+      ← Back
+    </button>
+    <h5 class="mb-0 fw-bold">Payment</h5>
+    <span class="invisible">←</span>
+  </div>
+
+  @if (step === 'method') {
+    <p class="fw-semibold mb-3">Select payment method</p>
+    <div class="card payment-card shadow-sm mb-4">
+      <div class="card-body p-0">
+        @for (method of paymentMethods; track method.id) {
+          <button
+            type="button"
+            class="payment-method w-100 d-flex align-items-center gap-3 p-3 border-0 bg-transparent"
+            [class.selected]="selectedMethod === method.id"
+            (click)="selectMethod(method.id)">
+            <span class="payment-icon">{{ method.icon }}</span>
+            <div class="text-start flex-grow-1">
+              <span class="fw-semibold">{{ method.label }}</span>
+              <p class="text-muted small mb-0">{{ method.description }}</p>
+            </div>
+            @if (selectedMethod === method.id) {
+              <i class="bi bi-check-circle-fill text-success"></i>
+            }
+          </button>
+        }
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <app-core-button label="Continue" width="160px" [onClick]="continueToForm" />
+    </div>
+  }
+
+  @if (step === 'form') {
+    <div class="payment-form-card card shadow-sm">
+      <div class="card-body">
+        <h6 class="form-title mb-3">{{ formTitle }}</h6>
+
+        <!-- Illustration area -->
+        <div class="illustration-block mb-4">
+          @switch (selectedMethod) {
+            @case ('upi') {
+              <div class="illus-upi">
+                <span class="illus-badge">UPI</span>
+                <div class="illus-icons">
+                  <span class="illus-icon">💡</span>
+                  <span class="illus-icon">💬</span>
+                  <span class="illus-icon">✓</span>
+                  <span class="illus-icon">₹</span>
+                </div>
+              </div>
+            }
+            @case ('card') {
+              <div class="illus-card">
+                <div class="card-chip"></div>
+                <span class="card-number-placeholder">0000 0000 0000 0000</span>
+              </div>
+            }
+            @case ('netbanking') {
+              <div class="illus-bank">
+                <i class="bi bi-bank2"></i>
+                <span class="illus-money">₹</span>
+                <i class="bi bi-phone"></i>
+              </div>
+            }
+            @default {
+              <div class="illus-wallet"><span>👛</span></div>
+            }
+          }
+        </div>
+
+        <!-- UPI form -->
+        @if (selectedMethod === 'upi') {
+          <div class="amount-pill mb-3">{{ amountFormatted }}</div>
+          <div class="mb-3">
+            <label class="form-label small text-muted">Validate Your UPI ID</label>
+            <app-core-input
+              placeholder="e.g. name@upi"
+              [control]="upiForm.controls.upiId" />
+          </div>
+          <p class="small text-muted mb-2">Popular UPI apps</p>
+          <div class="upi-logos mb-4">
+            <span class="upi-logo">Google Pay</span>
+            <span class="upi-logo">PhonePe</span>
+            <span class="upi-logo">Paytm</span>
+            <span class="upi-logo">Amazon Pay</span>
+          </div>
+        }
+
+        <!-- Card form -->
+        @if (selectedMethod === 'card') {
+          <div class="mb-3">
+            <label class="form-label small text-muted">Card number</label>
+            <app-core-input
+              placeholder="0000 0000 0000 0000"
+              [control]="cardForm.controls.cardNumber" />
+          </div>
+          <div class="row g-2 mb-3">
+            <div class="col-6">
+              <label class="form-label small text-muted">Expiry date</label>
+              <div class="d-flex gap-1">
+                <input type="text" class="form-control" placeholder="MM" maxlength="2" [formControl]="cardForm.controls.expiryMonth" />
+                <span class="align-self-center">/</span>
+                <input type="text" class="form-control" placeholder="YY" maxlength="2" [formControl]="cardForm.controls.expiryYear" />
+              </div>
+            </div>
+            <div class="col-6">
+              <label class="form-label small text-muted">Security code (CVV)</label>
+              <input type="password" class="form-control" placeholder="CVV" maxlength="4" [formControl]="cardForm.controls.cvv" />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small text-muted">Name</label>
+            <app-core-input placeholder="Name on card" [control]="cardForm.controls.name" />
+          </div>
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="saveCard" [formControl]="cardForm.controls.saveCard" />
+            <label class="form-check-label small" for="saveCard">Save card for future</label>
+          </div>
+        }
+
+        <!-- Net Banking form -->
+        @if (selectedMethod === 'netbanking') {
+          <div class="mb-3">
+            <label class="form-label small text-muted">Bank Name</label>
+            <app-core-input placeholder="Select bank" [control]="netBankingForm.controls.bankName" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label small text-muted">Link mobile number</label>
+            <app-core-input placeholder="Mobile number" [control]="netBankingForm.controls.mobileNumber" />
+          </div>
+          <div class="mb-4">
+            <label class="form-label small text-muted">OTP</label>
+            <div class="d-flex gap-2 otp-inputs">
+              <input type="text" class="form-control form-control-lg text-center" maxlength="1" [formControl]="netBankingForm.controls.otp1" />
+              <input type="text" class="form-control form-control-lg text-center" maxlength="1" [formControl]="netBankingForm.controls.otp2" />
+              <input type="text" class="form-control form-control-lg text-center" maxlength="1" [formControl]="netBankingForm.controls.otp3" />
+              <input type="text" class="form-control form-control-lg text-center" maxlength="1" [formControl]="netBankingForm.controls.otp4" />
+            </div>
+          </div>
+        }
+
+        <!-- Wallet: simple amount + pay -->
+        @if (selectedMethod === 'wallet') {
+          <div class="amount-pill mb-4">{{ amountFormatted }}</div>
+        }
+
+        <!-- Pay button -->
+        <button type="button" class="btn btn-pay w-100 py-3 mb-2" (click)="onPay()">
+          <span>PAY AMOUNT</span>
+          <span class="ms-auto">{{ amountFormatted }}</span>
+        </button>
+        <p class="safe-text small text-muted text-center mb-0">
+          <i class="bi bi-lock-fill me-1"></i> Safe and secured
+        </p>
+      </div>
+    </div>
+  }
+</div>
