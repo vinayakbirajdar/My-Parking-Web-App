@@ -1,0 +1,170 @@
+<div class="container-fluid mt-3">
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4 header-box">
+        <div>
+            <h5 class="mb-1 fw-bold">Book Parking</h5>
+            <small class="text-muted">Enter vehicle details to book a slot</small>
+        </div>
+        <span class="badge vehicle-type-badge">{{ vehicleType | titlecase }}</span>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" class="book-form">
+        <!-- VEHICLE DETAILS CARD -->
+        <p class="fw-semibold mb-3">Vehicle Details</p>
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Registration Number</label>
+                        <app-core-input
+                            placeholder="e.g. MH12 AB 1234"
+                            icon="bi bi-upc-scan"
+                            [control]="bookForm.controls['registrationNumber']">
+                        </app-core-input>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Expected Duration</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <i class="bi bi-clock"></i>
+                            </span>
+                            <select
+                                class="form-select"
+                                [formControl]="bookForm.controls['expectedDuration']">
+                                <option value="">Select duration</option>
+                                @for (opt of durationOptions; track opt.value) {
+                                    <option [value]="opt.value">{{ opt.label }}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Company / Make</label>
+                        <app-core-input
+                            placeholder="e.g. Maruti, Honda, Tata"
+                            icon="bi bi-building"
+                            [control]="bookForm.controls['company']">
+                        </app-core-input>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Model</label>
+                        <app-core-input
+                            placeholder="e.g. Swift, City, Nexon"
+                            icon="bi bi-car-front"
+                            [control]="bookForm.controls['model']">
+                        </app-core-input>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Vehicle Color</label>
+                        <app-core-input
+                            placeholder="e.g. White, Black, Silver"
+                            icon="bi bi-palette"
+                            [control]="bookForm.controls['vehicleColor']">
+                        </app-core-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DRIVER & CONTACT CARD -->
+        <p class="fw-semibold mb-3">Driver & Contact</p>
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Driver Name</label>
+                        <app-core-input
+                            placeholder="Full name"
+                            icon="bi bi-person-fill"
+                            [control]="bookForm.controls['driverName']">
+                        </app-core-input>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Contact Number</label>
+                        <app-core-input
+                            placeholder="e.g. +91 98765 43210"
+                            icon="bi bi-telephone-fill"
+                            type="tel"
+                            [control]="bookForm.controls['contactNumber']">
+                        </app-core-input>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Entry Date</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <i class="bi bi-calendar3"></i>
+                            </span>
+                            <input
+                                type="date"
+                                class="form-control"
+                                [formControl]="bookForm.controls['entryDate']" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label text-muted">Entry Time</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent">
+                                <i class="bi bi-clock"></i>
+                            </span>
+                            <input
+                                type="time"
+                                class="form-control"
+                                [formControl]="bookForm.controls['entryTime']" />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label text-muted">Special Requirements (optional)</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent align-items-start pt-3">
+                                <i class="bi bi-chat-left-text"></i>
+                            </span>
+                            <textarea
+                                class="form-control border-0"
+                                rows="2"
+                                placeholder="e.g. Disabled access, EV charging, near elevator"
+                                [formControl]="bookForm.controls['specialRequirements']"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUMMARY CARD with Submit at left -->
+        <div class="card shadow-sm mb-4 summary-card">
+            <div class="card-body d-flex flex-wrap align-items-center gap-3">
+                <div class="summary-content flex-grow-1">
+                    <h6 class="fw-semibold mb-1">Summary</h6>
+                    <p class="text-muted small mb-0" *ngIf="bookForm.value.registrationNumber || bookForm.value.company">
+                        <span *ngIf="bookForm.value.registrationNumber">{{ bookForm.value.registrationNumber }}</span>
+                        <span *ngIf="bookForm.value.company"> • {{ bookForm.value.company }}</span>
+                        <span *ngIf="bookForm.value.model"> {{ bookForm.value.model }}</span>
+                        <span *ngIf="bookForm.value.vehicleColor"> • {{ bookForm.value.vehicleColor }}</span>
+                        <span *ngIf="bookForm.value.expectedDuration"> • {{ getDurationLabel(bookForm.value.expectedDuration) }}</span>
+                        <span *ngIf="bookForm.value.driverName"> • {{ bookForm.value.driverName }}</span>
+                        <span *ngIf="bookForm.value.entryDate"> • {{ bookForm.value.entryDate }}</span>
+                        <span *ngIf="bookForm.value.entryTime"> {{ bookForm.value.entryTime }}</span>
+                    </p>
+                    <p class="text-muted small mb-0" *ngIf="!bookForm.value.registrationNumber && !bookForm.value.company">
+                        Fill in the form above to see your booking summary.
+                    </p>
+                </div>
+                <div class="summary-actions">
+                    <app-core-button
+                        label="Book Parking"
+                        type="submit"
+                        width="auto"
+                        [disabled]="!canBook"
+                        [onClick]="onSubmit">
+                    </app-core-button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACTIONS (Cancel only; Submit is in summary) -->
+        <div class="d-flex gap-2 justify-content-end">
+            <button type="button" class="btn btn-outline-secondary" (click)="goBack()">
+                Cancel
+            </button>
+        </div>
+    </form>
+</div>
