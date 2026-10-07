@@ -1,0 +1,105 @@
+<div class="container-fluid mt-3">
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4 header-box">
+        <div>
+            <button type="button" class="btn btn-outline-secondary btn-sm mb-2" (click)="goBack()">
+                ← Back
+            </button>
+            <h5 class="mb-1 fw-bold">Parking Zone</h5>
+            <small class="text-muted">Select a slot from the blocks on the right</small>
+        </div>
+    </div>
+
+    <div class="zone-layout">
+        <!-- LEFT: Info / Summary box -->
+        <div class="zone-info-box">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h6 class="fw-semibold mb-3">Info</h6>
+                    <p class="text-muted small mb-2">Each block has 10 parking slots (5–5). Tap a green slot to select.</p>
+                    <p class="mb-0"><strong>{{ availableCount }}</strong> slots available</p>
+                    @if (selectedSlotId) {
+                        <p class="mt-2 mb-0 text-success small">Selected: <strong>{{ selectedSlotId }}</strong></p>
+                    } @else {
+                        <p class="mt-2 mb-0 text-muted small">No slot selected</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: Parking blocks (each 10 slots = 5+5). More blocks = horizontal then wrap below -->
+        <div class="zone-blocks">
+            @for (block of slotBlocks; track block.id) {
+                <div class="slot-block card shadow-sm">
+                    <div class="card-body">
+                        <h6 class="slot-block-title">{{ block.name }}</h6>
+                        <div class="parking-layout">
+                            <div class="slot-column">
+                                @for (slot of getSlotsWithSelection(block.leftSlots); track slot.id) {
+                                    <button
+                                        type="button"
+                                        class="slot"
+                                        [class.slot-occupied]="slot.status === 'occupied'"
+                                        [class.slot-available]="slot.status === 'available'"
+                                        [class.slot-selected]="slot.status === 'selected'"
+                                        [disabled]="slot.status === 'occupied'"
+                                        (click)="onSlotClick(slot)">
+                                        @if (slot.status === 'occupied') {
+                                            <span class="slot-car">🚗</span>
+                                        } @else {
+                                            <span class="slot-number">{{ slot.number }}</span>
+                                        }
+                                    </button>
+                                }
+                            </div>
+                            <div class="aisle"></div>
+                            <div class="slot-column">
+                                @for (slot of getSlotsWithSelection(block.rightSlots); track slot.id) {
+                                    <button
+                                        type="button"
+                                        class="slot"
+                                        [class.slot-occupied]="slot.status === 'occupied'"
+                                        [class.slot-available]="slot.status === 'available'"
+                                        [class.slot-selected]="slot.status === 'selected'"
+                                        [disabled]="slot.status === 'occupied'"
+                                        (click)="onSlotClick(slot)">
+                                        @if (slot.status === 'occupied') {
+                                            <span class="slot-car">🚗</span>
+                                        } @else {
+                                            <span class="slot-number">{{ slot.number }}</span>
+                                        }
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="slot-actions">
+        <button type="button" class="btn btn-outline-secondary" (click)="goBack()">
+            Cancel
+        </button>
+        <div class="confirm-wrap">
+            <app-core-button
+                label="Confirm Booking"
+                width="100%"
+                [disabled]="!selectedSlotId"
+                [onClick]="confirmBooking">
+            </app-core-button>
+        </div>
+    </div>
+</div>
+
+<app-confirm-popup
+    [show]="showConfirmPopup"
+    title="Confirm Booking"
+    [details]="confirmPopupDetails"
+    confirmLabel="OK"
+    cancelLabel="Cancel"
+    (confirm)="onPopupConfirm()"
+    (cancel)="onPopupCancel()">
+</app-confirm-popup>

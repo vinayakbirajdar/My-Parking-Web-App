@@ -1,0 +1,161 @@
+$entry-green: #0d9488;
+$exit-red: #dc2626;
+$slot-available: #10b981;
+$slot-selected: #ea580c;
+$occupied-bg: #f1f5f9;
+$occupied-border: #cbd5e1;
+
+.header-box {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+// —— Main layout: left info box | right blocks ——
+.zone-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.zone-info-box {
+  flex: 0 0 260px;
+  min-width: 260px;
+}
+
+// —— Right: blocks in a row, wrap to next row if more ——
+.zone-blocks {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+// —— One block = 10 parks (5+5) ——
+.slot-block {
+  flex: 0 0 auto;
+  min-width: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.slot-block-title {
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  color: #475569;
+}
+
+.slot-block .card-body {
+  padding: 1rem;
+}
+
+// —— Inside each block: compact parking layout (5 left | aisle | 5 right) ——
+.slot-block .parking-layout {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  min-height: 0;
+}
+
+.slot-block .slot-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.slot-block .slot {
+  flex: 0 0 auto;
+  height: 52px;
+  min-height: 52px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: $occupied-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.slot-block .slot-occupied {
+  background: $occupied-bg;
+  border-color: $occupied-border;
+  color: #64748b;
+}
+
+.slot-block .slot-available {
+  background: linear-gradient(145deg, $slot-available 0%, #059669 100%);
+  color: white;
+  border: 2px dashed rgba(255, 255, 255, 0.6);
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.08);
+    transform: scale(1.02);
+  }
+}
+
+.slot-block .slot-selected {
+  background: linear-gradient(145deg, $slot-selected 0%, #c2410c 100%);
+  color: white;
+  border-color: #b45309;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.4);
+}
+
+.slot-block .slot-car {
+  font-size: 1.4rem;
+}
+
+.slot-block .aisle {
+  width: 24px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-radius: 6px;
+}
+
+// —— Actions ——
+.slot-actions {
+  max-width: 100%;
+  padding: 1.25rem 0 0.5rem;
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+  border-top: 1px solid #eee;
+  padding-top: 1.25rem;
+}
+
+.slot-actions .btn-outline-secondary {
+  flex-shrink: 0;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.slot-actions .confirm-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  max-width: 320px;
+}
+
+.slot-actions .confirm-wrap app-core-button {
+  flex: 1;
+  min-width: 0;
+  display: block;
+}
+
+.slot-actions .confirm-wrap ::ng-deep .d-flex {
+  width: 100%;
+  margin: 0;
+}
+
+.slot-actions .confirm-wrap ::ng-deep .core-btn {
+  width: 100%;
+}
