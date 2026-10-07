@@ -1,0 +1,8 @@
+<div class="input-wrapper">
+    <div class="input-group custom-input">
+        <span class="input-group-text bg-transparent border-0" *ngIf="icon">
+            <i [class]="icon"></i>
+        </span>
+        <input [type]="type" class="form-control border-0" [placeholder]="placeholder" [formControl]="control" />
+    </div>
+</div>

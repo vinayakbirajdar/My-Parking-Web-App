@@ -1,0 +1,51 @@
+/**
+ * Design tokens – one source of truth for colors, spacing, radius, shadows.
+ * Import via styles.scss. Prefer these CSS variables in component styles.
+ */
+
+:root {
+  /* Brand */
+  --app-color-primary: #214b69;
+  --app-color-primary-dark: #1a3454;
+  --app-color-primary-light: #e8f4fc;
+
+  /* Backgrounds */
+  --app-color-bg: #cbd2f9;
+  --app-color-surface: #ffffff;
+  --app-color-surface-muted: #f8fafc;
+
+  /* Text */
+  --app-color-text: #1a1a1a;
+  --app-color-text-muted: #6c757d;
+  --app-color-text-on-primary: #ffffff;
+
+  /* Borders & feedback */
+  --app-color-border: #eaeaea;
+  --app-color-success: #16a34a;
+  --app-color-danger: #dc2626;
+
+  /* Legacy aliases (keep existing templates working) */
+  --app_primary_color: var(--app-color-primary);
+  --app_background_color: var(--app-color-bg);
+
+  /* Spacing scale */
+  --app-space-1: 0.25rem;
+  --app-space-2: 0.5rem;
+  --app-space-3: 0.75rem;
+  --app-space-4: 1rem;
+  --app-space-5: 1.5rem;
+  --app-space-6: 2rem;
+
+  /* Radius */
+  --app-radius-sm: 8px;
+  --app-radius-md: 12px;
+  --app-radius-lg: 14px;
+
+  /* Shadow */
+  --app-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --app-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  /* Layout */
+  --app-page-max-width: 480px;
+  --app-font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}

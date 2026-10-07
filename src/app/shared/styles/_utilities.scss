@@ -1,0 +1,40 @@
+/**
+ * Shared layout utilities used across features.
+ * Prefer these classes over repeating the same CSS in every screen.
+ */
+
+.app-page-center {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--app-color-bg);
+}
+
+.app-card {
+  width: 100%;
+  max-width: var(--app-page-max-width);
+  border: none;
+  border-radius: var(--app-radius-lg);
+  background: var(--app-color-surface);
+  box-shadow: var(--app-shadow-md);
+}
+
+.app-page-header {
+  margin-bottom: var(--app-space-4);
+  padding-bottom: var(--app-space-3);
+  border-bottom: 1px solid var(--app-color-border);
+}
+
+.app-btn-primary {
+  background: var(--app-color-primary);
+  color: var(--app-color-text-on-primary);
+  border: none;
+  border-radius: var(--app-radius-sm);
+  font-weight: 600;
+
+  &:hover {
+    background: var(--app-color-primary-dark);
+    color: var(--app-color-text-on-primary);
+  }
+}
