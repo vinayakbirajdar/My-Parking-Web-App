@@ -1,0 +1,23 @@
+.otp-page {
+  min-height: 100vh;
+}
+
+.otp-box {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 14px;
+  border: none;
+  background-color: #ffffff;
+}
+
+.otp-digit {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.otp-digit:focus {
+  border-color: var(--app_primary_color, #214B69);
+  box-shadow: 0 0 0 0.2rem rgba(33, 75, 105, 0.25);
+}
